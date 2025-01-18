@@ -14,7 +14,6 @@ function ShowProducts() {
     const fetchProducts = async () => {
       try {
         const response = await axiosInstance.get("/products");
-        console.log(response);
         if (response.data && response.data) {
           setProducts(response.data);
         } else {
@@ -40,7 +39,7 @@ function ShowProducts() {
   return (
     <div className="bg-gray-50 min-h-screen p-6">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold text-indigo-600">Welcome to Admin Dashboard</h2>
+        <h2 className="text-3xl font-bold text-indigo-600">Explore Our Products</h2>
         <button
           onClick={handleLogout}
           className="bg-red-500 text-white py-2 px-6 rounded-full hover:bg-red-600 transition"
@@ -48,10 +47,12 @@ function ShowProducts() {
           Logout
         </button>
       </div>
+
       <p className="text-lg text-gray-600 mb-6">
-        Here are the products added by you. Explore and manage your inventory.
+        Browse through our exciting products. Find what suits you best!
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {products.map((product) => (
           <div
             key={product._id}
@@ -60,17 +61,20 @@ function ShowProducts() {
             <img
               src={`https://farsinstockinvenotory.site/uploads/${product.productImage}`}
               alt={product.productName}
-              className="w-full h-56 object-cover mb-4 rounded-t-xl"
+              className="w-full h-48 object-cover mb-4 rounded-t-xl"
             />
 
             <div className="p-4">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.productName}</h3>
-              <p className="text-lg text-indigo-600">${product.price.toFixed(2)}</p>
-              <p className="text-gray-600 mt-2">Code: {product.productCode}</p>
-              <p className="text-gray-600 mt-1">HSN Code: {product.hsnCode}</p>
-              <p className="text-gray-600 mt-1">Total Stock: {product.totalStock}</p>
+              <p className="text-lg text-white bg-green-500 py-1 px-4 rounded-full mb-2">
+                ${product.price.toFixed(2)}
+              </p>
+              <p className="text-gray-600">Code: {product.productCode}</p>
+              <p className="text-gray-600">HSN Code: {product.hsnCode}</p>
+              <p className="text-gray-600">Total Stock: {product.totalStock}</p>
+
               {product.variants && product.variants.length > 0 && (
-                <div className="mt-3">
+                <div className="mt-4">
                   <h4 className="font-semibold text-gray-700">Variants:</h4>
                   <ul className="list-disc ml-6">
                     {product.variants.map((variant) => (
