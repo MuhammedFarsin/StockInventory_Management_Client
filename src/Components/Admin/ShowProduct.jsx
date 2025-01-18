@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axiosInstance from "../../Axios/axios";
-import { baseURL } from "../../Config/config";
+// import { baseURL } from "../../Config/config";
 import ToasterHot from "../../Common/ToastedHot";
 import { toast } from "sonner";
 import ConfirmationModal from "../../Common/ConfirmationModal"; // Import your modal
@@ -97,7 +97,7 @@ function ShowProduct () {
                   >
                     <td className="px-6 py-4">
                       <img
-                        src={`${baseURL}/uploads/${product.productImage}`}
+                        src={`https://farsinstockinvenotory.site/uploads/${product.productImage}`}
                         alt={product.productName}
                         className="w-16 h-16 object-cover rounded"
                       />
