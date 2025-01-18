@@ -2,7 +2,7 @@ import axios from "axios";
 // import { baseURL } from "../Config/config";
 //AXIOS INSTANCE
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5005', // Or whatever your backend URL is
+  baseURL: 'https://farsinstockinvenotory.site', // Or whatever your backend URL is
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${localStorage.getItem('token')}`, // Add token if needed
